@@ -11,7 +11,8 @@ void quick_sort(int q[], int l, int r)
         do j -- ; while (q[j] > x);
         if (i < j) swap(q[i], q[j]);
     }
-    quick_sort(q, l, j), quick_sort(q, j + 1, r);
+    quick_sort(q, l, j);
+    quick_sort(q, j + 1, r);
 }
 归并排序
 void merge_sort(int q[], int l, int r)
@@ -19,7 +20,7 @@ void merge_sort(int q[], int l, int r)
     if (l >= r) return;
 
     int mid = l + r >> 1;
-    merge_sort(q, l, mid);
+    merge_sort(q, l, mid);    //与快速排序不同，归并排序的递归在前面
     merge_sort(q, mid + 1, r);
 
     int k = 0, i = l, j = mid + 1;
