@@ -1,3 +1,19 @@
+快速排序
+双指针的方法，一个从头部开始，一个从尾部开始，两者同时开始查找，当遇到不满足的值时停止，直到两者相遇
+void quick_sort(int q[], int l, int r)
+{
+    if (l >= r) return;
+
+    int i = l - 1, j = r + 1, x = q[l + r >> 1];
+    while (i < j)
+    {
+        do i ++ ; while (q[i] < x);
+        do j -- ; while (q[j] > x);
+        if (i < j) swap(q[i], q[j]);
+    }
+    quick_sort(q, l, j), quick_sort(q, j + 1, r);
+}
+
 整数二分
 用于对数的查找，每次选取中间值，根据中间值对数据进行查找，主要问题在于边界的问题
 代码模板（参考yxc大佬）
